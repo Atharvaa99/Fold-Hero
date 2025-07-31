@@ -1,6 +1,6 @@
 :root {
     --pad: clamp(1rem, 2cqi, 2.5rem);
-    --gap: clamp(1rem, 1.8cqi, 2rem);
+    --gap: clamp(1rem, 1.8cqi, 1.5rem);
     --rad: 10px;
     --text: rgb(37, 35, 35);
 }
@@ -114,7 +114,7 @@ body {
     min-width: fit-content;
     width: clamp(300px, 50cqi, 40vw);
     height: clamp(300px, 40cqi, 70vh);
-    z-index: 1;
+    z-index: 4;
     border-radius: var(--rad);
     animation: fadeInR 1s ease;
 }
@@ -123,7 +123,7 @@ body {
     min-width: fit-content;
     width: clamp(300px, 50cqi, 40cqw);
     height: clamp(300px, 50cqi, 65cqh);
-    z-index: 1;
+    z-index: 4;
     padding: var(--pad);
     display: flex;
     flex-direction: column;
@@ -139,13 +139,13 @@ body {
 
 .heading {
     text-align: center;
-    font-size: clamp(1.5rem, 5cqi, 3.5rem);
+    font-size: clamp(1.5rem, 3.3cqi, 2.8rem);
     color: var(--text);
 }
 
 .para {
     text-align: center;
-    font-size: clamp(0.8rem, 3cqi, 2rem);
+    font-size: clamp(0.8rem, 2cqi, 1.8rem);
 }
 
 @keyframes load {
