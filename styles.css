@@ -11,10 +11,6 @@
     .overlay-content{
         flex-direction: column-reverse !important;
     }
-    .visual img{
-        height: 40cqh !important;
-        width: 65cqw !important;
-    }
     .overlay-cue{
         inset-block-end: 10px !important;
     }
