@@ -112,7 +112,7 @@ body {
 
 .visual img {
     min-width: fit-content;
-    width: clamp(300px, 50cqi, 40vw);
+    width: clamp(300px, 50cqi, 35vw);
     height: clamp(300px, 40cqi, 70vh);
     z-index: 4;
     border-radius: var(--rad);
