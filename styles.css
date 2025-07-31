@@ -112,8 +112,8 @@ body {
 
 .visual img {
     min-width: fit-content;
-    width: clamp(300px, 50cqi, 40cqw);
-    height: clamp(300px, 40cqi, 70cqh);
+    width: clamp(300px, 50cqi, 40vw);
+    height: clamp(300px, 40cqi, 70vh);
     z-index: 1;
     border-radius: var(--rad);
     animation: fadeInR 1s ease;
