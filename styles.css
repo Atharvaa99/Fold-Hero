@@ -1,51 +1,225 @@
+:root {
+    --pad: clamp(1rem, 2cqi, 2.5rem);
+    --gap: clamp(1rem, 1.8cqi, 2rem);
+    --rad: 10px;
+    --text: rgb(37, 35, 35);
+}
+@container (max-width:1000px){
+    .overlay{
+        justify-content: center !important;
+    }
+    .overlay-content{
+        flex-direction: column-reverse !important;
+    }
+    .visual img{
+        height: 40cqh !important;
+        width: 65cqw !important;
+    }
+    .overlay-cue{
+        inset-block-end: 10px !important;
+    }
+    .card{
+        width: 70cqw !important;
+        height: max-content !important;
+    }
+    .heading{
+        font-size: clamp(1rem,2.5cqi,1.8rem) !important;
+    }
+    .para{
+        font-size: clamp(0.8rem,2cqi,1.4rem) !important;
+    }
+}
 body {
     margin: 0;
+    background: url(prompt10.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    container-type: inline-size;
     overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .wrapper {
-    height: 100vh;
-    width: 100vw;
+    width: 100cqw;
+    height: 100cqh;
     background-image: url('prompt1.png');
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     z-index: 1;
+    animation: load 1s ease-in;
 }
+
 .hero-container {
     width: 100%;
     height: 100%;
     background-image: url('prompt4.png');
     z-index: 2;
-    opacity: 0.4;
+    animation: blur 3s infinite ease;
 }
 
 .hero {
     width: 100%;
     height: 100%;
-    background-image: url(prompt9.png);
+    background-image: url('prompt9.png');
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
     background-position: center;
     z-index: 3;
     position: relative;
-    animation: particle 3s infinite ease-out;
-} 
+}
+
+.particle {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: particle 3s infinite ease-in-out;
+    will-change: transform, opacity;
+}
+
+.overlay {
+    position: absolute;
+    width: 100cqw;
+    height: 100cqh;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: var(--gap);
+}
+
+.overlay-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-around;
+}
+
+.overlay-cue {
+    position: relative;
+    width: 5cqw;
+    inset-inline-start: 48cqw;
+    text-align: center;
+    height: 9cqh;
+    color: rgb(74, 71, 71);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--rad);
+    inset-block-end: 10px;
+    animation: cue 1.7s infinite ease-out;
+}
+
+.visual img {
+    min-width: fit-content;
+    width: clamp(300px, 50cqi, 40cqw);
+    height: clamp(300px, 40cqi, 70cqh);
+    z-index: 1;
+    border-radius: var(--rad);
+    animation: fadeInR 1s ease;
+}
+
+.card {
+    min-width: fit-content;
+    width: clamp(300px, 50cqi, 40cqw);
+    height: clamp(300px, 50cqi, 65cqh);
+    z-index: 1;
+    padding: var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    background: rgba(244, 244, 244, 0.2);
+    backdrop-filter: blur(50px);
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--rad);
+    opacity: 0.8;
+    animation: fadeInL 1s ease;
+}
+
+.heading {
+    text-align: center;
+    font-size: clamp(1.5rem, 5cqi, 3.5rem);
+    color: var(--text);
+}
+
+.para {
+    text-align: center;
+    font-size: clamp(0.8rem, 3cqi, 2rem);
+}
+
+@keyframes load {
+    from {
+        transform: scale(5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 @keyframes particle {
     0% {
-        opacity: 0.7;
-        transform: scale(1.5);
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(-20%) scale(1.4);
-    }
-    100% {
-        opacity: 0.8;
-        transform: scale(1.5);
+        opacity: 0;
+        transform: scale(1);
     }
 
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes blur {
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes fadeInL {
+    from {
+        opacity: 0.1;
+        transform: scale(0.6) translateX(-100%);
+    }
+
+    to {
+        transform: scale(1) translateX(0%);
+    }
+}
+
+@keyframes fadeInR {
+    from {
+        opacity: 0.1;
+        transform: scale(0.6) translateX(100%);
+    }
+
+    to {
+        transform: scale(1) translateX(0%);
+    }
+}
+
+@keyframes cue {
+    from {
+        opacity: 0.5;
+        transform: translateY(-10%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
 }
