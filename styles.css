@@ -54,7 +54,7 @@ body {
     height: 100%;
     background-image: url('prompt4.png');
     z-index: 2;
-    animation: blur 3s infinite ease;
+    animation: blur 5s infinite ease;
 }
 
 .hero {
@@ -174,7 +174,7 @@ body {
 
 @keyframes blur {
     0% {
-        opacity: 0.4;
+        opacity: 0.2;
     }
 
     50% {
@@ -182,7 +182,7 @@ body {
     }
 
     100% {
-        opacity: 0.4;
+        opacity: 0.2;
     }
 }
 
